@@ -1,0 +1,1 @@
+ff = open(r'./demo.txt','r+',True)

@@ -1,0 +1,7 @@
+ff = open(r'./tt.txt')
+print("文件名为：",ff.name)
+line = ff.readline()
+print("此行数据为：%s" % line)
+post = ff.tell()
+print("当前文件指针位置：%s" % post)
+ff.close()

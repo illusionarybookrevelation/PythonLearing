@@ -1,0 +1,13 @@
+ff = open(r'./mm.txt')
+print("文件名为: ",ff.name)
+print(ff.read(5))
+print(ff.read(10))
+print()
+
+file_readline = open(r'./ms.txt')
+print("文件名为：",file_readline.name)
+line = file_readline.readline()
+print("读取第一行：%s" % line)
+line = file_readline.readline(15)
+print("读取字符串为：%s" % line)
+file_readline.close()
