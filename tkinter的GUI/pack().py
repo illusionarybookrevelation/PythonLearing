@@ -1,0 +1,26 @@
+from tkinter import *
+win = Tk()
+framel = Frame(win,relief=GROOVE,borderwidth=2)
+framel.pack(side=TOP,fill=BOTH,ipadx=13,ipady=13,expand=0)
+Button(framel,relief=GROOVE,text="在吗?",borderwidth=13).pack(side=LEFT,padx=13,pady=13)
+Button(framel,relief=RAISED,text="干啥?").pack(side=LEFT,padx=13,pady=13)
+Button(framel,relief=RIDGE,text="找你干饭").pack(side=LEFT,padx=13,pady=13)
+
+framel_2 = Frame(win,relief=GROOVE,borderwidth=2)
+framel_2.pack(side=BOTTOM,fill=NONE,ipadx="1c",ipady="1c",expand=1)
+Button(framel_2,relief=GROOVE,text="啊~天哪！",borderwidth=13).pack(side=RIGHT,padx="1c",pady="1c")
+Button(framel_2,relief=RAISED,text="阿米诺斯",borderwidth=12).pack(side=RIGHT,padx="1c",pady="1c")
+Button(framel_2,relief=RIDGE,text="待兼诗歌剧").pack(side=RIGHT,padx="1c",pady="1c")
+
+framel_3 = Frame(win,relief=GROOVE,borderwidth=2)
+framel_3.pack(side=LEFT,fill=X,ipadx="0.1i",ipady="0.1i",expand=1)
+Button(framel_3,relief=GROOVE,text="Hello",borderwidth=13).pack(side=TOP,padx="0.1i",pady="0.1i")
+Button(framel_3,relief=RAISED,text="what?",borderwidth=12).pack(side=TOP,padx="0.1i",pady="0.1i")
+Button(framel_3,relief=RIDGE,text="welcome").pack(side=TOP,padx="0.1i",pady="0.1i")
+
+framel_4 = Frame(win,relief=GROOVE,borderwidth=2)
+framel_4.pack(side=RIGHT,fill=Y,ipadx="13p",ipady="13p",expand=1)
+Button(framel_4,relief=GROOVE,text="梦中清明雨纷纷",borderwidth=13).pack(side=BOTTOM,padx="13p",pady="13p")
+Button(framel_4,relief=RAISED,text="总是入梦",borderwidth=12).pack(side=BOTTOM,padx="13p",pady="13p")
+Button(framel_4,relief=RIDGE,text="梦外胡笳声阵阵").pack(side=BOTTOM,padx="13p",pady="13p")
+win.mainloop()
