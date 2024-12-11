@@ -53,7 +53,7 @@ btn_save.pack(side=tk.LEFT, padx=5, pady=5)
 
 root.protocol("WM_DELETE_WINDOW",quit_file)
 
-img = Image.open("虎视眈眈.gif")
+img = Image.open("./gif/虎视眈眈.gif")
 frames = []
 try:
     while True:

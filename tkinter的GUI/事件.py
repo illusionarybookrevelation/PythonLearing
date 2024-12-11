@@ -14,7 +14,6 @@ label.pack()
 
 # 绑定鼠标左键单击事件
 label.bind("<Button-1>", on_click)
-
 # 绑定键盘事件
 root.bind("<Key>", on_key)
 
