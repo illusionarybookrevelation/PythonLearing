@@ -16,7 +16,8 @@ class Mother(tk.Tk):
         self.geometry(f"960x540+{x}+{y}")
         self.protocol("WM_DELETE_WINDOW",self.quit)
         self.gif_image()
-        self.pygame_playsound()
+        # 解开封印
+        # self.pygame_playsound()
         self.update()
     def gif_image(self):
         self.image = Image.open('./gif/win11娘.gif')
@@ -27,7 +28,6 @@ class Mother(tk.Tk):
                 self.image.seek(self.image.tell() + 1)
         except EOFError:
             pass
-
     def update(self, idx=0):
         if idx < len(self.frames):
             self.label.config(image=self.frames[idx])
