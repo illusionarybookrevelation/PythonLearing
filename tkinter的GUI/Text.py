@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from PIL import Image,ImageTk
+from PIL import Image, ImageTk
 import time
+
+# 定义功能函数
 def insert_text():
     """插入示例文本"""
     text_widget.insert("1.0", "しかのこのこのここしたんたん\n")
@@ -21,7 +23,7 @@ def save_to_file():
         messagebox.showinfo("保存成功", f"内容已保存到 {file_path}")
 
 def quit_file():
-    if tk.messagebox.askokcancel("退出","小鹿会一直注视着你的...."):
+    if messagebox.askokcancel("退出","小鹿会一直注视着你的...."):
         root.destroy()
 
 # 创建主窗口
@@ -51,24 +53,35 @@ btn_clear.pack(side=tk.LEFT, padx=5, pady=5)
 btn_save = tk.Button(button_frame, text="保存到文件", command=save_to_file)
 btn_save.pack(side=tk.LEFT, padx=5, pady=5)
 
-root.protocol("WM_DELETE_WINDOW",quit_file)
+# 创建Label用于显示GIF
+label = tk.Label(root)
+label.pack(side=tk.TOP, fill=tk.X)
 
+# 准备GIF图像
 img = Image.open("./gif/虎视眈眈.gif")
 frames = []
 try:
     while True:
-        frames.append(ImageTk.PhotoImage(img))
-        img.seek(len(frames))
+        frame = ImageTk.PhotoImage(img)
+        frames.append(frame)
+        img.seek(img.tell() + 1)
 except EOFError:
     pass
 
-label = tk.Label(root)
-label.pack(side=tk.TOP,fill=tk.X)
+# 设置初始帧
+frame_index = 0
+label.config(image=frames[frame_index])
 
-while True:
-    for img_s in frames:
-        label.config(image=img_s)
-        root.update()
-        time.sleep(0.1)
+# 启动GIF更新
+def update_gif():
+    global frame_index
+    frame_index += 1
+    label.config(image=frames[frame_index % len(frames)])
+    root.after(100, update_gif)  # 更新下一帧
 
+root.after(100, update_gif)  # 启动GIF动画
 
+# 绑定关闭窗口事件
+root.protocol("WM_DELETE_WINDOW", quit_file)
+
+root.mainloop()

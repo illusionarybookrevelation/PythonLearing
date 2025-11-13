@@ -53,6 +53,10 @@ def main():
     }
 
     category_map: dict[str:str] = {
+        "蔬菜": "1186",
+        "水果": "1187",
+        "肉禽蛋": "1189",
+        "水产": "1190",
         "粮油": "1188",
         "豆制品": "1203",
         "调料": "1204"
@@ -78,8 +82,8 @@ def main():
         payload_first: dict[str: str, str: int] = {
             "limit": "20",
             "current": "1",
-            "pubDateStartTime": "2025-10-31",
-            "pubDateEndTime": "2025-10-31",
+            "pubDateStartTime": one_day_ago,
+            "pubDateEndTime": one_day_ago,
             "prodPcatid": pcatid,
             "prodCatid": "",
             "prodName": ""

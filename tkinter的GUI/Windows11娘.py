@@ -17,7 +17,7 @@ class Mother(tk.Tk):
         self.protocol("WM_DELETE_WINDOW",self.quit)
         self.gif_image()
         # 解开封印
-        # self.pygame_playsound()
+        self.pygame_playsound()
         self.update()
     def gif_image(self):
         self.image = Image.open('./gif/win11娘.gif')
@@ -36,7 +36,8 @@ class Mother(tk.Tk):
         else:
             idx = 0
             self.update(idx)
-    def pygame_playsound(self):
+    @staticmethod
+    def pygame_playsound():
         pygame.init()
         pygame.mixer.music.load("./player/doodle.mp3")
         pygame.mixer.music.play(-1)
